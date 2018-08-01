@@ -10,7 +10,7 @@ mongoose.connect('mongodb://192.168.0.9:27017/sql', (err, res) =>{
 		throw err;
 	}else{
 		console.log("Base de datos Conectada Correctamente");
-        seneca.listen({port: 4000, type: "tcp", pin:"role:Soporte"});
+        seneca.listen({port: 4100, type: "tcp", pin:"role:Soporte"});
 	}
 });
 

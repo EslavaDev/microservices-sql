@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "basic": "^2.0.3",
+    "engine.io": "^3.2.0",
     "entity": "^0.0.0",
     "mongoose": "^5.2.6",
     "seneca": "^3.7.0",

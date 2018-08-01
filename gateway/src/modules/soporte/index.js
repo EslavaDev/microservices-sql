@@ -1,6 +1,6 @@
 
 //URGENTS
-const {fetchAllOptions} =require('./Options');
+const {fetchAllOptions, saveOptions} =require('./Options');
 const {upload, save} = require('./Controller');
 module.exports.Init = function(server, ...params){
     console.log(`the module Support is loaded`);
@@ -13,7 +13,7 @@ module.exports.Init = function(server, ...params){
         
     });
     server.route({
-        
+        options: saveOptions,
         path: "/api/support", 
         method: "POST", 
         handler:  save
