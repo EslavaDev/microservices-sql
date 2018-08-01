@@ -1,6 +1,6 @@
 import React from 'react';
-import { Table } from 'reactstrap';
-
+import { Button ,Table, Form, FormGroup, Label, Input } from 'reactstrap';
+import Modal from './ModalTables';
 export default class Example extends React.Component {
 
     constructor(props){
@@ -10,26 +10,32 @@ export default class Example extends React.Component {
         }
     }
 
-    componentDidMount(){
-        setInterval(async () => {
-            let response = await fetch('http://192.168.0.9:8080/api/support');
-            let json = await response.json()
-            this.setState({data:json.response})
-        },5000)
-    }
+   componentWillReceiveProps(){
+       this.setState({data:this.props.data});
+   }
+
   render() {
       console.log(this.state.data);
-      let item = this.state.data.map((data,index) =>{
+      const {data} = this.state
+      let item;
+      if(typeof data != 'undefined' && data!= null){
+      item = this.state.data.map((data,index) =>{
           return(
             <tr key={data._id}>
             <th scope="row">{index+1}</th>
             <td>{data.Db}</td>
-            <td>{data.Data}</td>
+            <td><Modal data={data.Data}buttonLabel="Data"/></td>
             <td>{data.Atto}</td>
           </tr> 
           )
       })
+    }else{
+        item = null
+    }
     return (
+        <div>
+        
+        
       <Table responsive hover>
         <thead>
           <tr>
@@ -43,6 +49,7 @@ export default class Example extends React.Component {
           {item}
         </tbody>
       </Table>
+      </div>
     );
   }
 }

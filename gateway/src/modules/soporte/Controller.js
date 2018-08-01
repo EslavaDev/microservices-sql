@@ -13,6 +13,19 @@ async function upload(
   })
 }
 
+
+async function fetchDb(
+  req,
+  reply
+){
+  let payload = req.payload
+  return reply.act({
+    role: "Soporte",
+    cmd: "fetchDb",
+    payload: payload
+  })
+}
+
 async function save(
   req,
   reply
@@ -27,5 +40,6 @@ async function save(
 }
 module.exports = {
   upload,
-  save
+  save,
+  fetchDb
 }
