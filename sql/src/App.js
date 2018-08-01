@@ -26,6 +26,7 @@ class App extends Component {
       
     });
     let json = await response.json()
+    console.log(json)
     this.setState({data:json.response})
 }
   render() {

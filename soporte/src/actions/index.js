@@ -110,6 +110,7 @@ module.exports = function Controller(options) {
             //console.log(albums);
             if(albums.length > 0){
               console.log('entro aca nene')
+              console.log(albums)
               reply(null, albums)
             }else{
               console.log('entro aca')
