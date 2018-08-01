@@ -20,6 +20,19 @@ const Joi = require('joi');
   
     auth: false,
     cors:true,
+    notes: ` este metodo trae todos lo datos guardados en un array de json \n
+    ejemplo: {
+        response:[
+            {
+                "_id": "5b61e1455955453371a231fd",
+                "Db": "bdSHealth",
+                "Data": "data data data data",
+                "Atto": "71247",
+                "__v": 0
+            }
+        ]
+    }
+    `,
     description: "Use this method to get list of support",
     tags:["api","support"]
 
