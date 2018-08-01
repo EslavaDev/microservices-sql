@@ -13,7 +13,14 @@ const Swagger = require('./Swagger');
 module.exports.Init = async function(config){
 
     const server = new hapi.Server({
-      port: config.port
+      port: config.port,
+      routes:{
+        cors:{
+          origin: ["*"],
+          headers: ["Accept", "Content-Type"],
+          additionalHeaders: ["X-Requested-With"]
+        }
+      }
     });
     await server.register([
       Vision,
@@ -54,6 +61,7 @@ module.exports.Init = async function(config){
           }
   })
     await server.start();
+    
     console.log(`the server is runing at ${server.info.port}`)
   
   };
