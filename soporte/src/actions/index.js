@@ -55,7 +55,7 @@ module.exports = function Controller(options) {
             console.log('vacio papa')
             return albums
           } else {
-            console.log(albums);
+            //console.log(albums);
             console.log('entro aca')
             return albums;
           }
@@ -63,7 +63,7 @@ module.exports = function Controller(options) {
       });
       console.log(data)
       let container;
-      if (data) {
+      if (data.length > 0) {
         container = {};
         container.Db = msg.payload.Db;
         container.Data = msg.payload.Data;
