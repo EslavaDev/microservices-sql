@@ -55,13 +55,14 @@ module.exports = function Controller(options) {
             console.log('vacio papa')
             return albums
           } else {
-            //console.log(albums);
+            console.log(albums);
+            console.log(albums.Db)
             console.log('entro aca')
             return albums;
           }
         }
       });
-      console.log(data)
+      //console.log(data)
       let container;
       if (data.length > 0) {
         container = {};
