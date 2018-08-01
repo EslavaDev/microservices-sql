@@ -51,7 +51,8 @@ module.exports = function Controller(options) {
             message: 'Error en la peticion'
           });
         } else {
-          if (albums.length <= 0) {
+          if (!albums) {
+            console.log('vacio papa')
             return albums
           } else {
             console.log(albums);
