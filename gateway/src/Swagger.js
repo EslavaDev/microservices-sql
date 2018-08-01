@@ -1,10 +1,11 @@
+const pkg = require('../package.json');
 module.exports= {
     documentationPath: '/',
     basePath: '/api/',
     info: {
       title: 'Sql Api',
       description: 'microservices Sql API',
-      version: '1.0.0',
+      version: pkg.version,
       contact: {
         name: 'Daniel Eslava',
         email: 'danieleslava52@gmail.com'

@@ -49,10 +49,6 @@ const saveOptions={
     plugins:{
         'hapi-swagger':{
             payloadType: 'form',
-            payload:{
-                example:{
-                "hola": "hola"}
-        }
     }
     },
     tags:["api","support"]
