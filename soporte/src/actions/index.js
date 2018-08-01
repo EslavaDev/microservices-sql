@@ -41,11 +41,11 @@ module.exports = function Controller(options) {
   this.add("role:Soporte, cmd:save", async (msg, reply) => {
     try {
 
-
-      let data = Data.find({
+      let container;
+      Data.find({
         "Db": msg.payload.Db,
         "Atto": msg.payload.Atto
-      }, (err, albums) => {
+      }, async (err, albums) => {
         if (err) {
           reply(null, {
             message: 'Error en la peticion'
@@ -56,16 +56,9 @@ module.exports = function Controller(options) {
             return albums
           } else {
             console.log(albums);
-            console.log(albums.Db)
-            console.log('entro aca')
-            return albums;
-          }
-        }
-      });
-      //console.log(data)
-      let container;
-      if (data.length > 0) {
-        container = {};
+            if(albums.length > 0){
+              console.log('entro aca nene')
+              container = {};
         container.Db = msg.payload.Db;
         container.Data = msg.payload.Data;
         container.Atto = msg.payload.Atto;
@@ -77,15 +70,17 @@ module.exports = function Controller(options) {
             reply(err, 'no hay data');
           } else {
             console.log(updates)
-            reply(null, {
+           return reply(null, {
               update: updates
             });
           }
         });
-      } else {
+            }else{
+
+              //console.log(albums[0].Db)
 
         container = new Data();
-        console.log('micro', msg.payload);
+        //console.log('micro', msg.payload);
         container.Db = msg.payload.Db;
         container.Data = msg.payload.Data;
         container.Atto = msg.payload.Atto;
@@ -94,14 +89,25 @@ module.exports = function Controller(options) {
             reply(err);
           } else {
             //emiter.emit('newData','ok')
-            console.log(albumRemove)
-            reply(null, {
+            //console.log(albumRemove)
+            return reply(null, {
               response: albumRemove
             });
 
           }
         });
-      }
+              console.log('entro aca')
+            }
+          }
+        }
+      });
+      //console.log(data)
+      
+      /*if (data.length > 0) {
+        
+      } else {
+
+      }*/
     } catch (err) {
       //console.log("entro al error")
       reply(err);
