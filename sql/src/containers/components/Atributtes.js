@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button ,Table, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Table } from 'reactstrap';
 import Modal from './ModalTables';
 export default class Example extends React.Component {
 
@@ -18,7 +18,7 @@ export default class Example extends React.Component {
       console.log(this.state.data);
       const {data} = this.state
       let item;
-      if(typeof data != 'undefined' && data!= null){
+      if(typeof data != 'undefined' && data != null){
       item = this.state.data.map((data,index) =>{
           return(
             <tr key={data._id}>

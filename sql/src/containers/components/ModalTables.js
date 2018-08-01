@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Table, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class ModalExample extends React.Component {
   constructor(props) {
