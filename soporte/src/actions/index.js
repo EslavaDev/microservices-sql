@@ -52,15 +52,15 @@ module.exports = function Controller(options) {
           });
         } else {
           if (albums.length <= 0) {
-            return false
+            return albums
           } else {
             console.log(albums);
             console.log('entro aca')
-            return true;
+            return albums;
           }
         }
       });
-      //console.log(data)
+      console.log(data)
       let container;
       if (data) {
         container = {};
