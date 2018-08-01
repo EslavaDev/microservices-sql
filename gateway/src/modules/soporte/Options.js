@@ -43,6 +43,14 @@ const saveOptions={
     auth: false,
     cors:true,
     description: "Use this method to save and update of support",
+    notes: ` este metodo guarda los datos en la base de datos en formato json, si existe algun
+            dato con el mismo id de Db y Atto se actualiza su campo \n
+    ejemplo: {
+                "Db": "bdSHealth",
+                "Data": "data data data data",
+                "Atto": "71247",
+    }
+    `,
     validate:{
         payload:Joi.object().keys({
             Db: Joi.string().max(30).required()
