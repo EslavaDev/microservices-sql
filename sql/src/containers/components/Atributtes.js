@@ -10,8 +10,12 @@ export default class Example extends React.Component {
         }
     }
 
-   componentWillReceiveProps(){
-       this.setState({data:this.props.data});
+
+componentWillReceiveProps(){
+    this.setState({data:this.props.data});
+}
+   componentWillUpdate(){
+    
    }
 
   render() {

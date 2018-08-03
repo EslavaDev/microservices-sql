@@ -4,15 +4,30 @@ const Joi = require('joi');
 
  const findByIdOption= {
   
-    auth: "jwt",
+    auth: false,
     cors: true,
+    notes: ` se debe enviar en el body la 'Db' y/o 'Atto, este metodo retorna un objeto o varios objetos que contengan dicho id's \n
+    ejemplo:{
+              "Db": "bdSHealth",
+              "Atto": "71247"
+            }
+    `,
     description: "Use this method to find a movie by id",
     validate:{
-        params:{
-            id: Joi.number().integer().description("this is the id of the movie").required()
-        }
+        payload:Joi.object().keys({
+            Db: Joi.string().max(30).required()
+            .description("name of the databases of the eps")
+            .label('Db'),
+            Atto: Joi.string().trim().max(40).required()
+            .description("id of the care treatment").label('Atto')
+        }).label('payload')
     },
-    tags:["api","films"]
+    plugins:{
+        'hapi-swagger':{
+            payloadType: 'form',
+    }
+},
+    tags:["api","support"]
 
 }
 
@@ -77,6 +92,7 @@ const saveOptions={
 }
 
 module.exports = {
+    findByIdOption,
     fetchAllOptions,
     saveOptions 
 }

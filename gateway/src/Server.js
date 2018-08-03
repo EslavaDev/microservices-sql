@@ -14,7 +14,7 @@ module.exports.Init = async function(config){
 
     const server = new hapi.Server({
       port: config.port,
-      host:'192.168.0.9',
+      host: config.host,
       routes:{
         cors:{
           origin: ["*"],

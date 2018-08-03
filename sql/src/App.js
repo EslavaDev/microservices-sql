@@ -16,22 +16,24 @@ class App extends Component {
 
   dataRequest = async () => {
     const {Db, Atto} = this.state;
-    console.log(Db, Atto)
+    //console.log(Db, Atto)
     let response = await fetch('http://192.168.0.9:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           method: "POST",
-          body: JSON.stringify({Db: Db, Atto: Atto})
+          body: JSON.stringify({Db, Atto})
       
     });
     let json = await response.json()
-    console.log(json)
+    console.log('asdasdasdasd');
+     console.log(json)
     this.setState({data:json})
 }
   render() {
     console.log(this.state.data)
+    const {data } = this.state
     return (
       <div className="App">
         <header className="App-header">
@@ -50,7 +52,7 @@ class App extends Component {
           <Button color="info" onClick={()=> this.dataRequest()}>Submit</Button>
           </Form>
         </header>
-        <Atributtes data={this.state.data}/>
+        <Atributtes data={data}/>
       </div>
     );
   }
