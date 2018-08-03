@@ -15,10 +15,10 @@ const Joi = require('joi');
     description: "Use this method to find a movie by id",
     validate:{
         payload:Joi.object().keys({
-            Db: Joi.string().max(30).required()
+            Db: Joi.string().max(30)
             .description("name of the databases of the eps")
             .label('Db'),
-            Atto: Joi.string().trim().max(40).required()
+            Atto: Joi.string().trim().max(40)
             .description("id of the care treatment").label('Atto')
         }).label('payload')
     },
