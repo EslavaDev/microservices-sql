@@ -9,13 +9,20 @@ class App extends Component {
     super(props)
     this.state={
       data:[],
-      Db:'',
-      Atto:''
+      Db:null,
+      Atto:null
     }
   }
 
   dataRequest = async () => {
     const {Db, Atto} = this.state;
+    let container ={};
+      if(Db){
+        container.Db = Db
+      }
+      if(Atto){
+        container.Atto = Atto
+      }
     console.log(Db, Atto)
     let response = await fetch('http://192.168.0.9:8080/api/support/id',{
         headers: {
@@ -23,7 +30,7 @@ class App extends Component {
             'Content-Type': 'application/json'
           },
           method: "POST",
-          body: JSON.stringify({Db, Atto})
+          body: JSON.stringify(container)
       
     });
     console.log(response)
