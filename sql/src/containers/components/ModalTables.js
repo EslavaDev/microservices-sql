@@ -1,19 +1,16 @@
 import React from 'react';
 import { Table, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-class ModalExample extends React.Component {
+class ModalExample extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      data: null
     };
 
     this.toggle = this.toggle.bind(this);
   }
-  componentWillReceiveProps(){
-      this.setState({data: this.props.data})
-  }
+
 
   
   toggle() {
@@ -23,31 +20,9 @@ class ModalExample extends React.Component {
   }
 
   render() {
-      const {data} = this.state;
-      let item = JSON.parse(data);
-      let item1;
-      if(data != null){
-        item1 = item.map((d,i) =>{
-            return(
-              <tr key={d.id}>
-              <th scope="row">{d.id}</th>
-              <td>{d.tipoObjeto}</td>
-              <td>{d.idTratamientoAsistencial}</td>
-              <td>{d.idNodoPrincipal}</td>
-              <td>{d.idNodoRelacionado2}</td>
-              <td>{d.idNodoRelacionado3}</td>
-              <td>{d.valor}</td>
-              <td>{d.uncoSede}</td>
-              <td>{d.uncoUsuarioModificacion}</td>
-              <td>{d.timeStamp}</td>
-              <td>{d.codigoPreguntaBase}</td>
   
-            </tr> 
-            )
-        })
-      }else{
-        item1 = null
-      }
+    let item = JSON.parse(this.props.data);
+
       /**/
     return (
       <div>
@@ -72,7 +47,26 @@ class ModalExample extends React.Component {
             </tr>
           </thead>
           <tbody>
-          {item1}
+          {
+            
+            item.map((d,i) =>{
+                return(
+                  <tr key={d.id}>
+                  <th scope="row">{d.id}</th>
+                  <td>{d.tipoObjeto}</td>
+                  <td>{d.idTratamientoAsistencial}</td>
+                  <td>{d.idNodoPrincipal}</td>
+                  <td>{d.idNodoRelacionado2}</td>
+                  <td>{d.idNodoRelacionado3}</td>
+                  <td>{d.valor}</td>
+                  <td>{d.uncoSede}</td>
+                  <td>{d.uncoUsuarioModificacion}</td>
+                  <td>{d.timeStamp}</td>
+                  <td>{d.codigoPreguntaBase}</td>
+      
+                </tr> 
+                )
+            })}
           </tbody>
         </Table>
           </ModalBody>

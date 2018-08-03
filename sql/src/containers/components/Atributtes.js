@@ -1,41 +1,13 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import { Table } from 'reactstrap';
 import Modal from './ModalTables';
-export default class Example extends React.Component {
-
-    constructor(props){
-        super(props)
-        this.state = {
-            data: []
-        }
-    }
 
 
-componentWillReceiveProps(){
-    this.setState({data:this.props.data});
-}
-   componentWillUpdate(){
-    
-   }
+export default class Example extends PureComponent {
+
 
   render() {
-      console.log(this.state.data);
-      const {data} = this.state
-      let item;
-      if(typeof data != 'undefined' && data != null){
-      item = this.state.data.map((data,index) =>{
-          return(
-            <tr key={data._id}>
-            <th scope="row">{index+1}</th>
-            <td>{data.Db}</td>
-            <td><Modal data={data.Data}buttonLabel="Data"/></td>
-            <td>{data.Atto}</td>
-          </tr> 
-          )
-      })
-    }else{
-        item = null
-    }
+
     return (
         <div>
         
@@ -50,7 +22,19 @@ componentWillReceiveProps(){
           </tr>
         </thead>
         <tbody>
-          {item}
+          {
+            this.props.data.map((item,index) =>{
+              return(
+                <tr key={item._id}>
+                <th scope="row">{index+1}</th>
+                <td>{item.Db}</td>
+                <td><Modal data={item.Data}buttonLabel="Data"/></td>
+                <td>{item.Atto}</td>
+              </tr> 
+              )
+          })
+        }
+          
         </tbody>
       </Table>
       </div>

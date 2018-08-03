@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './nan.png';
 import './App.css';
 import { Button , Form, FormGroup, Label, Input } from 'reactstrap';
 import Atributtes from './containers/components/Atributtes';
@@ -16,7 +16,7 @@ class App extends Component {
 
   dataRequest = async () => {
     const {Db, Atto} = this.state;
-    //console.log(Db, Atto)
+    console.log(Db, Atto)
     let response = await fetch('http://192.168.0.9:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
@@ -33,7 +33,7 @@ class App extends Component {
 }
   render() {
     console.log(this.state.data)
-    const {data } = this.state
+
     return (
       <div className="App">
         <header className="App-header">
@@ -52,7 +52,7 @@ class App extends Component {
           <Button color="info" onClick={()=> this.dataRequest()}>Submit</Button>
           </Form>
         </header>
-        <Atributtes data={data}/>
+        <Atributtes data={this.state.data}/>
       </div>
     );
   }
