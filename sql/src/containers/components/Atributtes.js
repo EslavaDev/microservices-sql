@@ -23,7 +23,7 @@ export default class Example extends PureComponent {
         </thead>
         <tbody>
           {
-            this.props.data.map((item,index) =>{
+            (this.props.data)?this.props.data.map((item,index) =>{
               return(
                 <tr key={item._id}>
                 <th scope="row">{index+1}</th>
@@ -32,8 +32,9 @@ export default class Example extends PureComponent {
                 <td>{item.Atto}</td>
               </tr> 
               )
-          })
+          }):''
         }
+            
           
         </tbody>
       </Table>
