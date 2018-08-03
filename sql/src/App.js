@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './nan.png';
 import './App.css';
 import { Button , Form, FormGroup, Label, Input } from 'reactstrap';
 import Atributtes from './containers/components/Atributtes';
@@ -16,21 +16,25 @@ class App extends Component {
 
   dataRequest = async () => {
     const {Db, Atto} = this.state;
+    console.log(Db, Atto)
     let response = await fetch('http://192.168.0.9:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           method: "POST",
-          body: JSON.stringify({Db: Db, Atto: Atto})
+          body: JSON.stringify({Db, Atto})
       
     });
+    console.log(response)
     let json = await response.json()
-    console.log(json)
-    this.setState({data:json.response})
+    console.log('asdasdasdasd');
+     console.log(json)
+    this.setState({data:json})
 }
   render() {
-    console.log(this.state.Atto)
+    console.log(this.state.data)
+
     return (
       <div className="App">
         <header className="App-header">
@@ -38,12 +42,12 @@ class App extends Component {
           <Form inline>
           <FormGroup>
           <Label for="exampleEmail" hidden>Db</Label>
-          <Input type="email" name="email" id="exampleEmail" placeholder="Db" onChange={(e)=>this.setState({Db: e.target.value})}/>
+          <Input  name="email" id="exampleEmail" placeholder="Db" onChange={(e)=>this.setState({Db: e.target.value})}/>
         </FormGroup>
         {' '}
         <FormGroup>
           <Label for="examplePassword" hidden>Atto</Label>
-          <Input type="password" name="password" id="examplePassword" placeholder="Atto" onChange={(e)=>this.setState({Atto: e.target.value})}/>
+          <Input  name="password" id="examplePassword" placeholder="Atto" onChange={(e)=>this.setState({Atto: e.target.value})}/>
         </FormGroup>
         {' '}
           <Button color="info" onClick={()=> this.dataRequest()}>Submit</Button>
