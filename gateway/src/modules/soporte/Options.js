@@ -71,7 +71,7 @@ const saveOptions={
             Db: Joi.string().max(30).required()
             .description("name of the databases of eps")
             .label("Db"),
-            Data: Joi.string().required()
+            Data: Joi.any().required()
             .description('data of the nodes of java server')
             .label('Data'),
             /*test:Joi.any()
