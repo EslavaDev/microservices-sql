@@ -71,7 +71,7 @@ const saveOptions={
             Db: Joi.string().max(30).required()
             .description("name of the databases of eps")
             .label("Db"),
-            Data: Joi.any().required()
+            Data: Joi.string().required()
             .description('data of the nodes of java server')
             .label('Data'),
             /*test:Joi.any()
@@ -82,11 +82,11 @@ const saveOptions={
             .label("Atto")
         }).label("payload")
     },
-    plugins:{
+/*     plugins:{
         'hapi-swagger':{
             payloadType: 'form',
     }
-    },
+    }, */
     tags:["api","support"]
 
 }
