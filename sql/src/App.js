@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from './nan.png';
 import './App.css';
-import { Button , Form, FormGroup, Label, Input } from 'reactstrap';
-import Atributtes from './containers/components/Atributtes';
+import { Button, Alert , Form, FormGroup, Label, Input } from 'reactstrap';
+import Atributtes from './components/Atributtes';
+import AlertContainer from './containers/AlertPortal';
+import AlertComponent from './components/alert';
 
 class App extends Component {
   constructor(props){
@@ -10,11 +12,27 @@ class App extends Component {
     this.state={
       data:[],
       Db:null,
-      Atto:null
+      Atto:null,
+      alert:false,
+      disable:false
     }
   }
 
+  alert =() =>{
+    setTimeout(() =>{this.setState({disable: false, alert:false})}, 2000)
+    return(
+      <AlertContainer>
+        <AlertComponent>
+          <Alert color="danger" isOpen={this.state.alert}>
+            Ingrese una Db y/o Atto Valido!
+          </Alert>
+        </AlertComponent>
+      </AlertContainer>
+    )
+  }
+
   dataRequest = async () => {
+    this.setState({disable: true})
     const {Db, Atto} = this.state;
     let container ={};
       if(Db){
@@ -24,7 +42,9 @@ class App extends Component {
         container.Atto = Atto
       }
     console.log(Db, Atto)
-    let response = await fetch('http://192.168.0.9:8080/api/support/id',{
+    
+    try{
+      let response = await fetch('http://192.168.0.9:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -35,15 +55,20 @@ class App extends Component {
     });
     console.log(response)
     let json = await response.json()
-    console.log('asdasdasdasd');
      console.log(json)
-    this.setState({data:json})
+    await this.setState({data:json, disable:false})
+  }catch(ex){
+    console.log(ex)
+    this.setState({ alert:true})
+
+  }
 }
   render() {
     console.log(this.state.data)
 
     return (
       <div className="App">
+      
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Form inline>
@@ -57,10 +82,11 @@ class App extends Component {
           <Input  name="password" id="examplePassword" placeholder="Atto" onChange={(e)=>this.setState({Atto: e.target.value})}/>
         </FormGroup>
         {' '}
-          <Button color="info" onClick={()=> this.dataRequest()}>Submit</Button>
+          <Button color="info" disabled={this.state.disable} onClick={()=> this.dataRequest()}>Submit</Button>
           </Form>
         </header>
         <Atributtes data={this.state.data}/>
+        {(this.state.alert)?this.alert():''}
       </div>
     );
   }

@@ -32,7 +32,7 @@ export default class Example extends PureComponent {
                 <td>{item.Atto}</td>
               </tr> 
               )
-          }):''
+          }):alert('inserte una DB y/o Atto Existente')
         }
             
           
