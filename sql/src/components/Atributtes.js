@@ -9,7 +9,7 @@ export default class Example extends PureComponent {
   render() {
 
     return (
-        <div>
+        <div style={{background:"white !important"}}>
         
         
       <Table responsive hover>

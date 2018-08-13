@@ -1,4 +1,5 @@
 let Data = require('../models/Data');
+
 module.exports = function Controller(options) {
 
   this.add("role:Soporte, cmd:fetchAll", async (msg, reply) => {
@@ -33,16 +34,16 @@ module.exports = function Controller(options) {
       Data.find({
         "Db": msg.payload.Db,
         "Atto": msg.payload.Atto
-      }, async (err, albums) => {
+      }, async (err, payload) => {
         if (err) {
           reply(null, {
             message: 'Error en la peticion'
           });
         } else {
-          if (!albums) {
-            return albums
+          if (!payload) {
+            return payload
           } else {
-            if(albums.length > 0){
+            if(payload.length > 0){
               container = {};
         container.Db = msg.payload.Db;
         container.Data = msg.payload.Data;
@@ -65,12 +66,12 @@ module.exports = function Controller(options) {
         container.Db = msg.payload.Db;
         container.Data = msg.payload.Data;
         container.Atto = msg.payload.Atto;
-        await container.save((err, albumRemove) => {
+        await container.save((err, save) => {
           if (err) {
             reply(err);
           } else {
             return reply(null, {
-              response: albumRemove
+              response: save
             });
 
           }
@@ -97,21 +98,21 @@ module.exports = function Controller(options) {
         container.Atto = data.Atto
       }
 
-      Data.find(container, async (err, albums) => {
+      Data.find(container, async (err, payload) => {
         if (err) {
           reply(null, {
             message: 'Error en la peticion'
           });
         } else {
-          if (!albums) {
+          if (!payload) {
             console.log('vacio papa')
-            return albums
+            return payload
           } else {
-            //console.log(albums);
-            if(albums.length > 0){
+            //console.log(payload);
+            if(payload.length > 0){
               console.log('entro aca nene')
-              console.log(albums)
-              reply(null, albums)
+              console.log(payload)
+              reply(null, payload)
             }else{
               console.log('entro aca')
               reply(null,null)

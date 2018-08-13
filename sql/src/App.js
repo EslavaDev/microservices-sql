@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './nan.png';
 import './App.css';
+import {Redirect} from 'react-router-dom'
 import { Button, Alert , Form, FormGroup, Label, Input } from 'reactstrap';
 import Atributtes from './components/Atributtes';
 import AlertContainer from './containers/AlertPortal';
@@ -17,6 +18,10 @@ class App extends Component {
       disable:false
     }
   }
+  componentDidMount = () => {
+
+  }
+  
 
   alert =() =>{
     setTimeout(() =>{this.setState({disable: false, alert:false})}, 2000)
@@ -65,10 +70,13 @@ class App extends Component {
 }
   render() {
     console.log(this.state.data)
-
+    let data = localStorage.getItem('login')
     return (
       <div className="App">
-      
+      {    
+      (!data)&&
+        <Redirect to='/'/>
+      }
         <header className="App-header">
           <img src={logo}  className="App-logo" alt="logo" />
           <Form inline>

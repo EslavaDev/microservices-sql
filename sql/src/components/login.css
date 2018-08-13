@@ -1,0 +1,46 @@
+
+
+.Login{
+    /*background-image: url("../../../images/covers/error.jpg") ;*/
+    position: relative;
+    background-color: #171c30;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+.Login input{
+    z-index: 2;
+    text-align: center;
+    color: black;
+    margin-bottom: 1%;
+}
+.Login h1{
+
+    text-align: center;
+    text-transform: capitalize;
+    color: aqua;
+}
+.Login button{
+    animation: App-logo-spin infinite 20s linear;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    line-height: 40px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    /* justify-content: center; */
+    text-align: center;
+    background: crimson;
+    color: white;
+
+    display: block;
+}
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
