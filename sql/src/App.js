@@ -93,8 +93,7 @@ class App extends Component {
           <Button color="info" disabled={this.state.disable} onClick={()=> this.dataRequest()}>Submit</Button>
           </Form>
         </header>
-        <Atributtes data={this.state.data}/>
-        {(this.state.alert)?this.alert():''}
+        {(this.state.alert)?this.alert():(<Atributtes data={this.state.data}/>)}
       </div>
     );
   }
