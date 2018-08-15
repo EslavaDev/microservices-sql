@@ -1,0 +1,21 @@
+{
+  "apps" : [{
+    "name"        : "aplicacion-principal",
+    "script"      : "./gateway/index.js",
+    "watch"       : true,
+    "exec_mode"  : "cluster"
+  }
+  ,{
+    "name"       : "soporte",
+    "script"     : "./soporte/index.js",
+    "watch"       : true,
+    "exec_mode"  : "cluster"
+  }
+  ,{
+    "name"       : "react",
+    "script"     : "./sql/node_modules/react-scripts/scripts/start.js",
+    "watch"      : true,
+  }
+
+]
+
