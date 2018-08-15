@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "sql"
+		},
+		{
+			"path": "soporte"
+		},
+		{
+			"path": "gateway"
+		}
+	],
+	"settings": {}
+}
