@@ -14,8 +14,10 @@
   ,{
     "name"       : "react",
     "script"     : "./sql/node_modules/react-scripts/scripts/start.js",
-    "watch"      : true,
+    "watch"      : true
   }
 
 ]
+
+}
 
