@@ -64,7 +64,7 @@ class App extends Component {
      console.log(json)
     await this.setState({data:json, disable:false})
   }else{
-    throw(ex);
+    throw "error de data";
   }
   }catch(ex){
     console.log(ex)
