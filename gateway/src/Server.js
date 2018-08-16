@@ -37,6 +37,7 @@ module.exports.Init = async function(config){
     server.seneca.
     client({
       port: 4100,
+      host: '192.168.0.14',
       type: "tcp",
       pin: "role:Soporte"
     }) //conecction why microservice profiles
