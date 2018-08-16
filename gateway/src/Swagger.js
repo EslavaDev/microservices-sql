@@ -2,7 +2,7 @@ const pkg = require('../package.json');
 module.exports= {
     documentationPath: '/',
     basePath: '/api/',
-    host:'190.85.249.87:8080', 
+    host:'186.147.235.10:8080', 
     info: {
       title: 'Sql Api',
       description: 'microservices Sql API',
