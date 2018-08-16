@@ -51,7 +51,7 @@ class ModalExample extends React.PureComponent {
             
             item.map((d,i) =>{
                 return(
-                  <tr key={d.id}>
+                  <tr key={i}>
                   <th scope="row">{d.id}</th>
                   <td>{d.tipoObjeto}</td>
                   <td>{d.idTratamientoAsistencial}</td>

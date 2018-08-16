@@ -25,7 +25,7 @@ export default class Example extends PureComponent {
           {
             (this.props.data)?this.props.data.map((item,index) =>{
               return(
-                <tr key={item._id}>
+                <tr key={index}>
                 <th scope="row">{index+1}</th>
                 <td>{item.Db}</td>
                 <td><Modal data={item.Data}buttonLabel="Data"/></td>
