@@ -36,7 +36,7 @@ module.exports.Init = async function(config){
     await server.register(chairo);
     server.seneca.
     client({
-      port: 4100,
+      port: 10002,
       type: "tcp",
       pin: "role:Soporte"
     }) //conecction why microservice profiles
