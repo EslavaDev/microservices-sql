@@ -49,7 +49,7 @@ class App extends Component {
     console.log(Db, Atto)
     
     try{
-      let response = await fetch('http://10.75.58.6:8080/api/support/id',{
+      let response = await fetch('http://192.168.0.14:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

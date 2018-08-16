@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Login from './containers/Login';
 
 const App = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={'/Home'}>
     <Switch>
         <Route path="/" exact component={Login}/>
         <Route path="/data" exact component={App1}/>
