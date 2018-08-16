@@ -6,7 +6,7 @@ seneca.use(require('./src/actions'));
 let mongoose = require('mongoose');
 
 try{
-	mongoose.connect('mongodb://lcoalhost:27017/sql', async (err, res) =>{
+	mongoose.connect('mongodb://localhost:27017/sql', async (err, res) =>{
 		if(err){
 			throw err;
 		}else{
