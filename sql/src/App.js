@@ -49,7 +49,8 @@ class App extends Component {
     console.log(Db, Atto)
     
     try{
-      let response = await fetch('http://190.85.249.87:8080/api/support/id',{
+      if(Db||Atto){
+            let response = await fetch('http://190.85.249.87:8080/api/support/id',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -62,6 +63,9 @@ class App extends Component {
     let json = await response.json()
      console.log(json)
     await this.setState({data:json, disable:false})
+  }else{
+    throw(ex);
+  }
   }catch(ex){
     console.log(ex)
     this.setState({ alert:true})
@@ -93,7 +97,7 @@ class App extends Component {
           <Button color="info" disabled={this.state.disable} onClick={()=> this.dataRequest()}>Submit</Button>
           </Form>
         </header>
-        {(this.state.alert)?this.alert():(<Atributtes data={this.state.data}/>)}
+        {(this.state.Db || this.state.Atto)?(<Atributtes data={this.state.data}/>):this.alert()}
       </div>
     );
   }
