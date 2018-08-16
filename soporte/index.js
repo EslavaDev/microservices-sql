@@ -11,7 +11,7 @@ try{
 			throw err;
 		}else{
 			console.log("Base de datos Conectada Correctamente");
-			await seneca.listen({port: 10002, type: "tcp", pin:"role:Soporte"});
+			await seneca.listen({port: 4100, type: "tcp", pin:"role:Soporte"});
 		}
 	});
 
