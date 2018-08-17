@@ -25,13 +25,14 @@ export default class Example extends PureComponent {
         <tbody>
           {
             (this.props.data)?this.props.data.map((item,index) =>{
+              let timestamp = new Date(item.createdAt)
               return(
                 <tr key={index}>
                 <th scope="row">{index+1}</th>
                 <td>{item.Db}</td>
                 <td><Modal data={item.Data}buttonLabel="Data"/></td>
                 <td>{item.Atto}</td>
-                <td>{item.createdAt}</td>
+                <td>{timestamp.toLocaleString()}</td>
               </tr> 
               )
           }):alert('inserte una DB y/o Atto Existente')
