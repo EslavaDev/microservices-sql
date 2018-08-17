@@ -19,6 +19,7 @@ export default class Example extends PureComponent {
             <th>Databases</th>
             <th>Data</th>
             <th>Atto</th>
+            <th>Creacion de Dato mongoDB</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@ export default class Example extends PureComponent {
                 <td>{item.Db}</td>
                 <td><Modal data={item.Data}buttonLabel="Data"/></td>
                 <td>{item.Atto}</td>
+                <td>{item.createdAt}</td>
               </tr> 
               )
           }):alert('inserte una DB y/o Atto Existente')
