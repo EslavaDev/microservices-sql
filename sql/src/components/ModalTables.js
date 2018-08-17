@@ -34,6 +34,7 @@ class ModalExample extends React.PureComponent {
           <thead>
             <tr>
               <th>id</th>
+              <th>title</th>
               <th>TObj</th>
               <th>Atto</th>
               <th>idNodoP</th>
@@ -53,6 +54,7 @@ class ModalExample extends React.PureComponent {
                 return(
                   <tr key={i}>
                   <th scope="row">{d.id}</th>
+                  <td>{d.title}</td>
                   <td>{d.tipoObjeto}</td>
                   <td>{d.idTratamientoAsistencial}</td>
                   <td>{d.idNodoPrincipal}</td>

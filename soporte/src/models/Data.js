@@ -4,7 +4,11 @@ let Schema = mongoose.Schema;
 let DataSchema = Schema({
   Db: String,
   Data: String,
-  Atto: String
+  Atto: String,
+  createdAt: {
+    type: String,
+    default: new Date
+  }
 });
 
 module.exports= mongoose.model('Data', DataSchema);
