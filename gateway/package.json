@@ -13,6 +13,8 @@
   "dependencies": {
     "boom": "^7.2.0",
     "chairo": "^4.0.0",
+    "express-fileupload": "^0.4.0",
+    "fileupload": "^1.0.0",
     "hapi": "^17.5.2",
     "hapi-auth-jwt2": "^8.1.0",
     "hapi-swagger": "^9.1.1",
@@ -22,7 +24,7 @@
     "lodash": "^4.17.10",
     "mongoose": "^5.2.6",
     "nconf": "^0.10.0",
-    "request": "^2.87.0",
+    "request": "^2.88.0",
     "vision": "^5.3.3"
   }
 }

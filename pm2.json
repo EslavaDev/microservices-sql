@@ -1,18 +1,27 @@
 {
   "apps" : [{
-    "name"        : "aplicacion-principal",
+    "name"        : "gateway",
     "script"      : "./gateway/index.js",
-    "watch"       : true,
-    "exec_mode"  : "cluster"
-  }
-  ,{
+  },
+{
     "name"       : "soporte",
     "script"     : "./soporte/index.js",
-    "watch"       : true,
+    "exec_mode"  : "cluster"
+  },
+{
+    "name"       : "excel",
+    "script"     : "./excel-api/index.js",
+ 
     "exec_mode"  : "cluster"
   }
 
-]
+],
+
+  "watch": ["gateway", "soporte", "excel"],
+  "ignore_watch" : ["./uploads"],
+  "watch_options": {
+    "followSymlinks": false
+  }
 
 }
 

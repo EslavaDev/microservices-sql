@@ -5,6 +5,7 @@ const Inert = require('inert');
 const Vision = require('vision');
 const Jwt = require('hapi-auth-jwt2');
 const Boom = require('boom');
+const fileupload = require('express-fileupload')
 const HapiSwagger = require('hapi-swagger');
 const { promisify, format  } = require('util');
 const fs = require('fs');
@@ -42,14 +43,18 @@ module.exports.Init = async function(config){
     }) //conecction why microservice profiles
 
   
-    /*server.auth.strategy('jwt', 'jwt', {
-      key: config.jwtSecret,
-      validate: validatefn,
-      verifyOptions:{
-          //ignoreExpiration: true,
-          algorithms:['HS256'] 
+    await server.route({
+      method: 'GET',
+      path: '/Home/{path*}',
+      handler: {
+        directory: {
+          path: path.join(__dirname, '../build'),
+          listing: false,
+
+          index: true
+        }
       }
-  });*/
+  });
   
 
   
