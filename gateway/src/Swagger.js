@@ -1,9 +1,9 @@
 const pkg = require('../package.json');
-let ip = {"ip":"10.75.58.6", externa:'190.85.249.87:8080', local: '127.0.0.1:8080'}
+let ip = {"ip":"10.75.58.6", externa:'190.85.249.87:8080', local: '192.168.0.115:8080'}
 module.exports= {
     documentationPath: '/docs',
     basePath: '/api/',
-    host:ip.externa, 
+    host:ip.local, 
     info: {
       title: 'Sql Api',
       description: 'microservices Sql API',

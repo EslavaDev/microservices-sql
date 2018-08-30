@@ -1,9 +1,13 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+// importacion de mongo
+const mongoose = require('mongoose');
 
-let feedSchema = new Schema({
-    "Estado": String,
-    "Primer nombre del usuario": String
-}, { strict: false });
+// declaracion de variables usando la metodologia destructuring
+const { Schema } = mongoose;
 
-module.exports= mongoose.model('Excel', feedSchema);
+// creacion del schema de MongoDB
+const feedSchema = new Schema({
+  Estado: String,
+}, { strict: false }); // el strict:false es para hacer dinamica la collection de mongo
+
+// exportacion del modelo de MongoDB
+module.exports = mongoose.model('Excel', feedSchema);
